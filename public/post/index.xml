@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Beom Jin Lee</title>
+    <link>https://beomjin-lee.github.io/post/</link>
+    <description>Recent content in Posts on Beom Jin Lee</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy;</copyright>
+    <lastBuildDate>Thu, 11 Jun 2020 00:33:20 +0800</lastBuildDate>
+    
+	    <atom:link href="https://beomjin-lee.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Welcome to my blog!</title>
+      <link>https://beomjin-lee.github.io/post/welcome/</link>
+      <pubDate>Thu, 11 Jun 2020 00:33:20 +0800</pubDate>
+      
+      <guid>https://beomjin-lee.github.io/post/welcome/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Welcome to my new blog!&lt;/strong&gt; After years of thinking about making a blog, procrastinating and ending up in an infinite loop, I have finally decided to make action.&lt;/p&gt;
+&lt;p&gt;The main purpose of this blog will be for me to share with you interesting things I have learned about in the past, and it will range from fancy math to productivity tools to exciting books I have read. So, expect a wide variety of topics!&lt;/p&gt;
+&lt;p&gt;Before we get started, let&#39;s write some exciting sample code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{python}&#34; data-lang=&#34;{python}&#34;&gt;def me(): 
+    return &amp;quot;Brian&amp;quot; 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let&#39;s also write some math:
+$$ e = mc^2 $$&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
