@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academia 4.3.1">
+  <meta name="generator" content="Hugo 0.62.2" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Beom Jin Lee">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Are you just getting started with Git? Or are you running into huge merge conflicts with no way out but to delete your entire folder? Look no further!">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://beomjin-lee.github.io/post/git-guide/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#fc6f5c">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academia.min.a7e6ef0dda43b11fa550f09a5de47f9e.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://beomjin-lee.github.io/post/git-guide/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Beom Jin Lee">
+  <meta property="og:url" content="https://beomjin-lee.github.io/post/git-guide/">
+  <meta property="og:title" content="Getting You Up To Speed with Using Git &amp; Github (with a 2-minute summary!) | Beom Jin Lee">
+  <meta property="og:description" content="Are you just getting started with Git? Or are you running into huge merge conflicts with no way out but to delete your entire folder? Look no further!"><meta property="og:image" content="https://beomjin-lee.github.io/img/icon-192.png">
+  <meta property="twitter:image" content="https://beomjin-lee.github.io/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2020-06-14T21:45:19&#43;08:00">
+  
+  <meta property="article:modified_time" content="2020-06-14T21:45:19&#43;08:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Getting You Up To Speed with Using Git &amp; Github (with a 2-minute summary!) | Beom Jin Lee</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Beom Jin Lee</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#experience"><span>Experience</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article py-5" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+    
+    
+    <div class="article-container py-3">
+      <h1 itemprop="name">Getting You Up To Speed with Using Git &amp; Github (with a 2-minute summary!)</h1>
+
+      
+      <p class="page-subtitle">Git is like a dog: it can bark at you, but it is programmers&rsquo; best friend</p>
+      
+
+      
+      
+
+
+
+<meta content="2020-06-14 21:45:19 &#43;0800 &#43;08" itemprop="datePublished">
+<meta content="2020-06-14 21:45:19 &#43;0800 &#43;08" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/brian/">Beom Jin Lee</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 14, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    12 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://beomjin-lee.github.io/post/git-guide/&amp;text=Getting%20You%20Up%20To%20Speed%20with%20Using%20Git%20&amp;amp;%20Github%20%28with%20a%202-minute%20summary!%29" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://beomjin-lee.github.io/post/git-guide/&amp;t=Getting%20You%20Up%20To%20Speed%20with%20Using%20Git%20&amp;amp;%20Github%20%28with%20a%202-minute%20summary!%29" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Getting%20You%20Up%20To%20Speed%20with%20Using%20Git%20&amp;amp;%20Github%20%28with%20a%202-minute%20summary!%29&amp;body=https://beomjin-lee.github.io/post/git-guide/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://beomjin-lee.github.io/post/git-guide/&amp;title=Getting%20You%20Up%20To%20Speed%20with%20Using%20Git%20&amp;amp;%20Github%20%28with%20a%202-minute%20summary!%29" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Getting%20You%20Up%20To%20Speed%20with%20Using%20Git%20&amp;amp;%20Github%20%28with%20a%202-minute%20summary!%29%20https://beomjin-lee.github.io/post/git-guide/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://beomjin-lee.github.io/post/git-guide/&amp;title=Getting%20You%20Up%20To%20Speed%20with%20Using%20Git%20&amp;amp;%20Github%20%28with%20a%202-minute%20summary!%29" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      
+    </div>
+  </div>
+</div>
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <p>Over the years, I have given numerous talks and tutorials on using Git and Github to help onboard folks to using these vital dev tools. A lot of people find themselves flooded in the infinite possibilities of the sophisticated tool. But, it turns out the day-to-day uses of Git and Github are often constrained to a small subset of operations.</p>
+<p>Git is the de-facto Google Docs for developers — but on many levels, I argue, better. Through powerful techniques like branching, you can vastly improve the organization of your code, and increase your ability to cooperate with other developers on your team.</p>
+<p>Of course, learning Git does not happen in one day — there’s so much to learn! However, with this guide, you will be able to do 80% of what your daily operations require you. The point of this blog post is <strong>not</strong> to make you a Git guru, but to <strong>get you started with using Git</strong> and to get you <strong>up to speed quickly</strong>. So, if you are someone who already knows how to use Git, this may not the right blog post for you!</p>
+<h1 id="prerequisites">Prerequisites</h1>
+<p>I will be assuming, for the purposes of this quick tutorial, the following:</p>
+<ul>
+<li>Working Github account</li>
+<li>Git installed on your local machine</li>
+</ul>
+<h1 id="2-minute-tldr">2-minute tl;dr</h1>
+<p>Before I dive into the details, I'll give you a quick 2-minute tl;dr if you are on a rush to get things done quickly.</p>
+<ol>
+<li><strong>Clone a repository</strong>: Clone a repository from Github using the <code>git clone</code> command. This will enable you to collaborate with other folks from platforms like Github, by cloning the repository code and history.</li>
+<li><strong>Pull, pull, pull!</strong> Say your collaborator has pushed out new exciting code into <code>new_file.py</code> and you want to access it. Well, look no further! You can use the <code>git pull</code> command to &ldquo;download&rdquo; all the new files that have been &ldquo;uploaded&rdquo; to Github.</li>
+<li><strong>Add, Commit, Push</strong>: The three musketeers of Git. If you want to upload (or push) your code to Github, you want to perform all these three commands. More on what they exactly do below!
+<ol>
+<li><code>git add &lt;file-name&gt;</code> (e.g., <code>git add new_file.py</code>)</li>
+<li><code>git commit -m &quot;&lt;new-message&gt;&quot;</code> (e.g., <code>git commit -m &quot;This is new code I wrote!&quot;</code>)</li>
+<li><code>git push origin &lt;branch&gt;</code> (e.g., <code>git push origin master</code>)</li>
+</ol>
+</li>
+<li><strong>Branch out - make it your own!</strong> Use branches to work on your own code - and never work on the master branch. Branches essentially make a copy of the code that you can mess around with, until you are ready to make a pull request. To make a branch, run <code>git checkout -b &lt;branch-name&gt;</code> and when you are ready to make a pull request, click on the pull request tab on Github and select merge your branch to the master!</li>
+</ol>
+<h1 id="other-fantastic-resources">Other Fantastic Resources</h1>
+<p>My guide here isn’t perfect, and is not a catch-all guide to GIt. For some other fantastic resources on Git, I highly recommend that you check out:</p>
+<ul>
+<li>MIT’s Missing Semester of Your CS Education. The Git lecture gives you solid picture of Git and Github and builds it from the bottom-up. In my tutorial, I give you a more abstracted view, just to get you started. But, if you are in the mood to really learn how Git works, so you don’t make crazy mistakes, check it out!</li>
+<li>Dangit Guide: This is a <em>euphemized</em> version of the original guide with expletives. It teaches you how to get unstuck in response to common issues that arise in Git. I definitely recommend that you check the guide out as you get more proficient with using Git.</li>
+<li>How to Write Good Commit Messages: Writing good commit messages is crucial, especially when you aren’t just hacking with your friends (even when you are hacking with your friends, good commit messages might save you an hour or two worth of debugging). This blog post will convince you further why and also teach you good commit message standards.</li>
+<li>StackOverflow: Well, you saw this coming. <del>A true programmer lives in StackOverflow.</del> StackOverflow is a fantastic resources if you are stuck, and you need immediate help and a quick way out of your problems. If StackOverflow doesn’t answer your questions, you might be better off deleting your local repository and re-cloning (literally).</li>
+</ul>
+<h1 id="preliminary-terminology">Preliminary Terminology</h1>
+<p>When you work with folks who are familiar with Git and Github, you may come across terminology that you are unfamiliar with. This blog post is no different - and indeed, I have tried to use precise terminology. Here, I will give some easy-to-understand, yet very loose, definitions for Git terms (Google ahead for the more precise definitions!)</p>
+<ul>
+<li><strong>Repository:</strong> You will often hear people shorten this word to &ldquo;repo&rdquo;. Repo refers to the codebase containing all the code of your project. More specifically, it contains all the history of your project, so you can go back and &ldquo;checkout&rdquo; your project to previous states.</li>
+<li><strong>Checkout</strong>: For most use cases, checkout is the &ldquo;undo&rdquo; button for your Git history, where you can switch back to a former commit. More precisely, checkout allows you to switch between different versions of the repo (different branches, different times in history, etc.).</li>
+<li><strong>Push</strong>: Uploading local content to your remote Git repository. In other words, pushing your files mean you will be pushing the changes you have made on your local computer to the Github repository where everyone will be able to see your changes.</li>
+<li><strong>Pull</strong>: Downloading remote Git repository content to your local drive. When you are collaborating with other folks.</li>
+<li><strong>Branches:</strong> Branches are effectively different versions of the same codebase, so that you can store multiple copies of the same repository, all with their unique changes. When you want to add a new feature or fix a bug - no matter how big or how small - you make a new branch to record your changes, instead of pushing to the master branch (which should only contain production-ready code).</li>
+<li><strong>Pull Request</strong>: You will often hear people shorten this word to &ldquo;PR&rdquo;. This is a Github-specific term, and it is used when you want to push the changes from your branch (e.g., <code>brian-fix</code>) to some other branch (typically <code>master</code> branch). This comes in really handy because this is a way to streamline the review process of your code.</li>
+</ul>
+<h1 id="step-1-cloning-a-github-repo">Step 1: Cloning a Github Repo</h1>
+<p>While Git can be used locally, one of the reasons Git is so powerful is it enables you to collaborate with other developers on platforms like Github.</p>
+<p>First, go to the directory where you want to clone the project to. In my case, my go-to directory is my <code>Desktop</code>, so I would command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#a6e22e">cd</span> <span style="color:#f92672">~</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#960050;background-color:#1e0010">D</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">k</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">p</span>
+</code></pre></div><p>Second, go ahead and either use an existing or create a new repository</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone &lt;repo-name&gt;
+</code></pre></div><p>where you should replace <code>&lt;repo-name&gt;</code> with the HTML link or the SSH link. I highly recommend using SSH, but that takes a little more to set up <a href="https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">here</a>. To find the HTML or SSH link on Github, you can find it by clicking on the <code>Clone or download</code> button:</p>
+<p><img src="5%20minute%20Guide%20to%20Get%20You%20Up%20To%20Speed%20in%20Git%20Githu%204fe0fa9a7726409ca72bec4a56fed1ce/Screen_Shot_2020-04-25_at_6.51.24_PM.png" alt="5%20minute%20Guide%20to%20Get%20You%20Up%20To%20Speed%20in%20Git%20Githu%204fe0fa9a7726409ca72bec4a56fed1ce/Screen_Shot_2020-04-25_at_6.51.24_PM.png"></p>
+<p>Clone or download button on the <code>tensorflow</code> repository</p>
+<p>After cloning, you should see the new repo right in your directory. You can then <code>cd</code> into the directory, and get right ahead hacking and having fun making new changes to the repo!</p>
+<h1 id="step-2-git-pull">Step 2: Git Pull</h1>
+<p>Imagine a scenario where you are collaborating with a friend of yours (Alice), and Alice has pushed her new changes into the Git repo, and you, being an enthusiastic computer scientist have also made changes you would now like to push to the repo, when all of a sudden you see this message:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">! <span style="color:#f92672">[</span>rejected<span style="color:#f92672">]</span> your-branch -&gt; your-branch <span style="color:#f92672">(</span>non-fast-forward<span style="color:#f92672">)</span>
+</code></pre></div><p>Oh no! Has Git gone mad? Don't worry - Git is telling you that if you want to push your changes to the remote Git repo, you should first <code>pull</code> the changes from the remote repo and then push your new changes, so that your local copy is synced to the remote copy! To pull in the new changes, simply run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git pull origin &lt;branch-name&gt; <span style="color:#f92672">(</span>e.g., git pull origin master<span style="color:#f92672">)</span>
+</code></pre></div><p>Before you push or make changes to your code, make it a habit of yours to <code>git pull</code> every time!</p>
+<h1 id="step-3-git-add-git-commit-git-push">Step 3: Git add, Git commit, Git push</h1>
+<h2 id="quick-overview">Quick Overview</h2>
+<p>The three musketeers of Git: add, commit, push. These three musketeers always go together when you want to push changes you have made to the Github repo so you can collaborate with others. The combination of these three commands, done right, will let you &ldquo;push&rdquo; your changes to the original codebase, or to your branch in the repo. Let's take a look at what each of these actions let you do:</p>
+<ul>
+<li><code>git add</code>: Adds the files you selected to the staging area. The staging area is a buffer before you ship it away by committing your changes. Taking the analogy of shipping your products away, the staging area is a loading dock where you get to decide which products actually get shipped.</li>
+<li><code>git commit</code>: When you commit a file, you are saying, &ldquo;yes, I want this file in my Git history&rdquo;. In other words, this is like clicking on the &ldquo;save&rdquo; button on your Word document - you are saying that you would like to, at the very least, see a snapshot of that file. When you commit, you are also asked to add a message. This message is the description of what this new change enables you to do. For example, if I made a change to a file that fixes a bug due to a typo that my friend has made, my message might look like: <code>Fix typo in [new.py](http://new.py)</code> (or more realistically, I would probably write <code>does this work now?</code>)</li>
+<li><code>git push</code>: Woohoo! You have now made a snapshot of the file you want to push forward in your Git history, and all you have left to do is to send that snapshot off to your remote Github repository. To do that, <code>git push</code> will do the job and will send your file off to the remote Github repository!</li>
+</ul>
+<p>So, how exactly do we use these in practice? Let me get you started!</p>
+<h2 id="add-commit-push-how-to">Add, Commit, Push How-To</h2>
+<p>Let's build up our scenario, where we are in a Git folder <code>~/Desktop/new-git-folder</code> and we run the <code>ls</code> command to list our files:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">(</span>base<span style="color:#f92672">)</span>  ~/Desktop/new-git-folder ls -a
+.git .gitignore new_file.py README.md
+</code></pre></div><p>I want to push my <code>new_file.py</code> to the Github repository. How can I do that? Well - let's remember the three commands: <code>add</code>, <code>commit</code>, <code>push</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git add new_file.py
+git commit -m <span style="color:#e6db74">&#34;Add new file to the repo&#34;</span>
+git push origin master
+</code></pre></div><p>When adding files to Git staging, you might also see people do <code>git add *</code> or <code>git add .</code> I personally strongly discourage these practices because they will often pick up unwanted files (like your data or if you are a Mac user, <code>.DS_STORE</code>). They will eventually clutter up Github and cleaning those files up will be a mess. Besides, having these unwanted files in Github will make you look unprofessional.</p>
+<h1 id="step-4-branching-and-pull-requests">Step 4: Branching and Pull Requests</h1>
+<h2 id="quick-overview-1">Quick Overview</h2>
+<p>This is <strong>not</strong> a requirement, but a very strong recommendation if you want to use Git properly. In fact, I always enforce that folks who work with me, in student organizations or in research, to use branching and pull requests, <strong>because they effectively allow us to reduce 90% of the Git errors,</strong> and <strong>because they allow effective quality control</strong>. If you are messing around with your own Github repo, this is probably not so necessary - but I still highly recommend that you use good practice.</p>
+<p><em>So what is branching?</em> Branching is making a copy of the codebase that you can work off from, without affecting the original codebase. In more classical CS terms, consider this to be a pointer to a copy of your original codebase. This means that you can make your own fixes, make as much bugs as you want, crash the program, without affecting the original work. When you are happy with your changes, then you submit a PR so that your branch can be merged with the original codebase (meaning you update the original codebase with your changes).</p>
+<h2 id="branching-how-to">Branching How-To</h2>
+<p>Now, let's talk about the mechanics of how this works. First, from your original Git codebase, create your own branch. You can do this the slower way of creating a branch using <code>git branch</code> then checking out into the new branch with <code>git checkout</code>, or you can do all this in one step,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout -b &lt;branch-name&gt;
+</code></pre></div><p>For example, if I want to fix a bug related to Issue #31 on Github (don't worry too much about what this means - but in Github, people can raise Issues on your work that you can work on), I might make a branch like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout -b fix-issue-31
+</code></pre></div><p>Once I have done so, I have created a new branch <code>fix-issue-31</code> and I have checked into the branch (meaning, I am now on that branch). I highly recommend that you customize your Terminal setup so you can see which branch you are on. Otherwise, you can type:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git branch
+</code></pre></div><p>which will show you all the active branches and which branch you are currently on, like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">(</span>base<span style="color:#f92672">)</span>  ~/Desktop/new-git-folder git branch
+* fix-issue-31
+master
+</code></pre></div><p>where the branch with the asterisk is the branch you are currently on.</p>
+<p>Once you are done, follow our usual procedure of add and commit. However, on <code>push</code>, change it up a little, so that you push to the correct branch:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git push origin &lt;branch-name&gt;
+</code></pre></div><p>In my case, I would type <code>git push origin fix-issue-31</code>.</p>
+<h3 id="pull-request-how-to">Pull Request How-To</h3>
+<p>Now is time to make new pull requests. First, head right over the Github and click on the Pull Request button as outlined below:</p>
+<p><img src="5%20minute%20Guide%20to%20Get%20You%20Up%20To%20Speed%20in%20Git%20Githu%204fe0fa9a7726409ca72bec4a56fed1ce/Screen_Shot_2020-06-14_at_9.39.49_PM.png" alt="5%20minute%20Guide%20to%20Get%20You%20Up%20To%20Speed%20in%20Git%20Githu%204fe0fa9a7726409ca72bec4a56fed1ce/Screen_Shot_2020-06-14_at_9.39.49_PM.png"></p>
+<p>Then, move right along to <code>New Pull Request</code> button:</p>
+<p><img src="5%20minute%20Guide%20to%20Get%20You%20Up%20To%20Speed%20in%20Git%20Githu%204fe0fa9a7726409ca72bec4a56fed1ce/Screen_Shot_2020-06-14_at_9.41.25_PM.png" alt="5%20minute%20Guide%20to%20Get%20You%20Up%20To%20Speed%20in%20Git%20Githu%204fe0fa9a7726409ca72bec4a56fed1ce/Screen_Shot_2020-06-14_at_9.41.25_PM.png"></p>
+<p>Once you are there, you should be able to submit a new Pull Request. Then, you can collaborate with other folks who will review your work and you can continue to update your branch until everyone is satisfied and thinks your code should be merged into the <code>master</code> branch. And there you have it! Woohoo!</p>
+
+    </div>
+
+    
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="https://beomjin-lee.github.io">Beom Jin Lee</a></h5>
+      <h6 class="card-subtitle">MS EECS Student</h6>
+      <p class="card-text" itemprop="description">I am an incoming MS EECS student at UC Berkeley, and I have graduated from the same institution with a BA in CS (2017 - 2020). Nice to meet you!</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="/#contact" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/beomjin-lee" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academia.min.7276a6a3624de715a5c7f54c7c07696d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        
+        <p>
+          © &middot; 
+          Powered by
+          <a href="https://themefisher.com" target="_blank" rel="noopener">themefisher</a> for
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <ul class="list-inline network-icon text-right">
+          
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -7,10 +7,119 @@
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy;</copyright>
-    <lastBuildDate>Thu, 11 Jun 2020 00:33:20 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jun 2020 21:45:19 +0800</lastBuildDate>
     
 	    <atom:link href="https://beomjin-lee.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Getting You Up To Speed with Using Git &amp; Github (with a 2-minute summary!)</title>
+      <link>https://beomjin-lee.github.io/post/git-guide/</link>
+      <pubDate>Sun, 14 Jun 2020 21:45:19 +0800</pubDate>
+      
+      <guid>https://beomjin-lee.github.io/post/git-guide/</guid>
+      <description>&lt;p&gt;Over the years, I have given numerous talks and tutorials on using Git and Github to help onboard folks to using these vital dev tools. A lot of people find themselves flooded in the infinite possibilities of the sophisticated tool. But, it turns out the day-to-day uses of Git and Github are often constrained to a small subset of operations.&lt;/p&gt;
+&lt;p&gt;Git is the de-facto Google Docs for developers — but on many levels, I argue, better. Through powerful techniques like branching, you can vastly improve the organization of your code, and increase your ability to cooperate with other developers on your team.&lt;/p&gt;
+&lt;p&gt;Of course, learning Git does not happen in one day — there’s so much to learn! However, with this guide, you will be able to do 80% of what your daily operations require you. The point of this blog post is &lt;strong&gt;not&lt;/strong&gt; to make you a Git guru, but to &lt;strong&gt;get you started with using Git&lt;/strong&gt; and to get you &lt;strong&gt;up to speed quickly&lt;/strong&gt;. So, if you are someone who already knows how to use Git, this may not the right blog post for you!&lt;/p&gt;
+&lt;h1 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h1&gt;
+&lt;p&gt;I will be assuming, for the purposes of this quick tutorial, the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Working Github account&lt;/li&gt;
+&lt;li&gt;Git installed on your local machine&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;2-minute-tldr&#34;&gt;2-minute tl;dr&lt;/h1&gt;
+&lt;p&gt;Before I dive into the details, I&#39;ll give you a quick 2-minute tl;dr if you are on a rush to get things done quickly.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Clone a repository&lt;/strong&gt;: Clone a repository from Github using the &lt;code&gt;git clone&lt;/code&gt; command. This will enable you to collaborate with other folks from platforms like Github, by cloning the repository code and history.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pull, pull, pull!&lt;/strong&gt; Say your collaborator has pushed out new exciting code into &lt;code&gt;new_file.py&lt;/code&gt; and you want to access it. Well, look no further! You can use the &lt;code&gt;git pull&lt;/code&gt; command to &amp;ldquo;download&amp;rdquo; all the new files that have been &amp;ldquo;uploaded&amp;rdquo; to Github.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Add, Commit, Push&lt;/strong&gt;: The three musketeers of Git. If you want to upload (or push) your code to Github, you want to perform all these three commands. More on what they exactly do below!
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;git add &amp;lt;file-name&amp;gt;&lt;/code&gt; (e.g., &lt;code&gt;git add new_file.py&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git commit -m &amp;quot;&amp;lt;new-message&amp;gt;&amp;quot;&lt;/code&gt; (e.g., &lt;code&gt;git commit -m &amp;quot;This is new code I wrote!&amp;quot;&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git push origin &amp;lt;branch&amp;gt;&lt;/code&gt; (e.g., &lt;code&gt;git push origin master&lt;/code&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Branch out - make it your own!&lt;/strong&gt; Use branches to work on your own code - and never work on the master branch. Branches essentially make a copy of the code that you can mess around with, until you are ready to make a pull request. To make a branch, run &lt;code&gt;git checkout -b &amp;lt;branch-name&amp;gt;&lt;/code&gt; and when you are ready to make a pull request, click on the pull request tab on Github and select merge your branch to the master!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;other-fantastic-resources&#34;&gt;Other Fantastic Resources&lt;/h1&gt;
+&lt;p&gt;My guide here isn’t perfect, and is not a catch-all guide to GIt. For some other fantastic resources on Git, I highly recommend that you check out:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MIT’s Missing Semester of Your CS Education. The Git lecture gives you solid picture of Git and Github and builds it from the bottom-up. In my tutorial, I give you a more abstracted view, just to get you started. But, if you are in the mood to really learn how Git works, so you don’t make crazy mistakes, check it out!&lt;/li&gt;
+&lt;li&gt;Dangit Guide: This is a &lt;em&gt;euphemized&lt;/em&gt; version of the original guide with expletives. It teaches you how to get unstuck in response to common issues that arise in Git. I definitely recommend that you check the guide out as you get more proficient with using Git.&lt;/li&gt;
+&lt;li&gt;How to Write Good Commit Messages: Writing good commit messages is crucial, especially when you aren’t just hacking with your friends (even when you are hacking with your friends, good commit messages might save you an hour or two worth of debugging). This blog post will convince you further why and also teach you good commit message standards.&lt;/li&gt;
+&lt;li&gt;StackOverflow: Well, you saw this coming. &lt;del&gt;A true programmer lives in StackOverflow.&lt;/del&gt; StackOverflow is a fantastic resources if you are stuck, and you need immediate help and a quick way out of your problems. If StackOverflow doesn’t answer your questions, you might be better off deleting your local repository and re-cloning (literally).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;preliminary-terminology&#34;&gt;Preliminary Terminology&lt;/h1&gt;
+&lt;p&gt;When you work with folks who are familiar with Git and Github, you may come across terminology that you are unfamiliar with. This blog post is no different - and indeed, I have tried to use precise terminology. Here, I will give some easy-to-understand, yet very loose, definitions for Git terms (Google ahead for the more precise definitions!)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Repository:&lt;/strong&gt; You will often hear people shorten this word to &amp;ldquo;repo&amp;rdquo;. Repo refers to the codebase containing all the code of your project. More specifically, it contains all the history of your project, so you can go back and &amp;ldquo;checkout&amp;rdquo; your project to previous states.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Checkout&lt;/strong&gt;: For most use cases, checkout is the &amp;ldquo;undo&amp;rdquo; button for your Git history, where you can switch back to a former commit. More precisely, checkout allows you to switch between different versions of the repo (different branches, different times in history, etc.).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Push&lt;/strong&gt;: Uploading local content to your remote Git repository. In other words, pushing your files mean you will be pushing the changes you have made on your local computer to the Github repository where everyone will be able to see your changes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pull&lt;/strong&gt;: Downloading remote Git repository content to your local drive. When you are collaborating with other folks.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Branches:&lt;/strong&gt; Branches are effectively different versions of the same codebase, so that you can store multiple copies of the same repository, all with their unique changes. When you want to add a new feature or fix a bug - no matter how big or how small - you make a new branch to record your changes, instead of pushing to the master branch (which should only contain production-ready code).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pull Request&lt;/strong&gt;: You will often hear people shorten this word to &amp;ldquo;PR&amp;rdquo;. This is a Github-specific term, and it is used when you want to push the changes from your branch (e.g., &lt;code&gt;brian-fix&lt;/code&gt;) to some other branch (typically &lt;code&gt;master&lt;/code&gt; branch). This comes in really handy because this is a way to streamline the review process of your code.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;step-1-cloning-a-github-repo&#34;&gt;Step 1: Cloning a Github Repo&lt;/h1&gt;
+&lt;p&gt;While Git can be used locally, one of the reasons Git is so powerful is it enables you to collaborate with other developers on platforms like Github.&lt;/p&gt;
+&lt;p&gt;First, go to the directory where you want to clone the project to. In my case, my go-to directory is my &lt;code&gt;Desktop&lt;/code&gt;, so I would command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;D&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;k&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;p&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Second, go ahead and either use an existing or create a new repository&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone &amp;lt;repo-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;where you should replace &lt;code&gt;&amp;lt;repo-name&amp;gt;&lt;/code&gt; with the HTML link or the SSH link. I highly recommend using SSH, but that takes a little more to set up &lt;a href=&#34;https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh&#34;&gt;here&lt;/a&gt;. To find the HTML or SSH link on Github, you can find it by clicking on the &lt;code&gt;Clone or download&lt;/code&gt; button:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;5%20minute%20Guide%20to%20Get%20You%20Up%20To%20Speed%20in%20Git%20Githu%204fe0fa9a7726409ca72bec4a56fed1ce/Screen_Shot_2020-04-25_at_6.51.24_PM.png&#34; alt=&#34;5%20minute%20Guide%20to%20Get%20You%20Up%20To%20Speed%20in%20Git%20Githu%204fe0fa9a7726409ca72bec4a56fed1ce/Screen_Shot_2020-04-25_at_6.51.24_PM.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Clone or download button on the &lt;code&gt;tensorflow&lt;/code&gt; repository&lt;/p&gt;
+&lt;p&gt;After cloning, you should see the new repo right in your directory. You can then &lt;code&gt;cd&lt;/code&gt; into the directory, and get right ahead hacking and having fun making new changes to the repo!&lt;/p&gt;
+&lt;h1 id=&#34;step-2-git-pull&#34;&gt;Step 2: Git Pull&lt;/h1&gt;
+&lt;p&gt;Imagine a scenario where you are collaborating with a friend of yours (Alice), and Alice has pushed her new changes into the Git repo, and you, being an enthusiastic computer scientist have also made changes you would now like to push to the repo, when all of a sudden you see this message:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;! &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;rejected&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; your-branch -&amp;gt; your-branch &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;non-fast-forward&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Oh no! Has Git gone mad? Don&#39;t worry - Git is telling you that if you want to push your changes to the remote Git repo, you should first &lt;code&gt;pull&lt;/code&gt; the changes from the remote repo and then push your new changes, so that your local copy is synced to the remote copy! To pull in the new changes, simply run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git pull origin &amp;lt;branch-name&amp;gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;e.g., git pull origin master&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Before you push or make changes to your code, make it a habit of yours to &lt;code&gt;git pull&lt;/code&gt; every time!&lt;/p&gt;
+&lt;h1 id=&#34;step-3-git-add-git-commit-git-push&#34;&gt;Step 3: Git add, Git commit, Git push&lt;/h1&gt;
+&lt;h2 id=&#34;quick-overview&#34;&gt;Quick Overview&lt;/h2&gt;
+&lt;p&gt;The three musketeers of Git: add, commit, push. These three musketeers always go together when you want to push changes you have made to the Github repo so you can collaborate with others. The combination of these three commands, done right, will let you &amp;ldquo;push&amp;rdquo; your changes to the original codebase, or to your branch in the repo. Let&#39;s take a look at what each of these actions let you do:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git add&lt;/code&gt;: Adds the files you selected to the staging area. The staging area is a buffer before you ship it away by committing your changes. Taking the analogy of shipping your products away, the staging area is a loading dock where you get to decide which products actually get shipped.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git commit&lt;/code&gt;: When you commit a file, you are saying, &amp;ldquo;yes, I want this file in my Git history&amp;rdquo;. In other words, this is like clicking on the &amp;ldquo;save&amp;rdquo; button on your Word document - you are saying that you would like to, at the very least, see a snapshot of that file. When you commit, you are also asked to add a message. This message is the description of what this new change enables you to do. For example, if I made a change to a file that fixes a bug due to a typo that my friend has made, my message might look like: &lt;code&gt;Fix typo in [new.py](http://new.py)&lt;/code&gt; (or more realistically, I would probably write &lt;code&gt;does this work now?&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git push&lt;/code&gt;: Woohoo! You have now made a snapshot of the file you want to push forward in your Git history, and all you have left to do is to send that snapshot off to your remote Github repository. To do that, &lt;code&gt;git push&lt;/code&gt; will do the job and will send your file off to the remote Github repository!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, how exactly do we use these in practice? Let me get you started!&lt;/p&gt;
+&lt;h2 id=&#34;add-commit-push-how-to&#34;&gt;Add, Commit, Push How-To&lt;/h2&gt;
+&lt;p&gt;Let&#39;s build up our scenario, where we are in a Git folder &lt;code&gt;~/Desktop/new-git-folder&lt;/code&gt; and we run the &lt;code&gt;ls&lt;/code&gt; command to list our files:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;base&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;  ~/Desktop/new-git-folder ls -a
+.git .gitignore new_file.py README.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I want to push my &lt;code&gt;new_file.py&lt;/code&gt; to the Github repository. How can I do that? Well - let&#39;s remember the three commands: &lt;code&gt;add&lt;/code&gt;, &lt;code&gt;commit&lt;/code&gt;, &lt;code&gt;push&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git add new_file.py
+git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Add new file to the repo&amp;#34;&lt;/span&gt;
+git push origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When adding files to Git staging, you might also see people do &lt;code&gt;git add *&lt;/code&gt; or &lt;code&gt;git add .&lt;/code&gt; I personally strongly discourage these practices because they will often pick up unwanted files (like your data or if you are a Mac user, &lt;code&gt;.DS_STORE&lt;/code&gt;). They will eventually clutter up Github and cleaning those files up will be a mess. Besides, having these unwanted files in Github will make you look unprofessional.&lt;/p&gt;
+&lt;h1 id=&#34;step-4-branching-and-pull-requests&#34;&gt;Step 4: Branching and Pull Requests&lt;/h1&gt;
+&lt;h2 id=&#34;quick-overview-1&#34;&gt;Quick Overview&lt;/h2&gt;
+&lt;p&gt;This is &lt;strong&gt;not&lt;/strong&gt; a requirement, but a very strong recommendation if you want to use Git properly. In fact, I always enforce that folks who work with me, in student organizations or in research, to use branching and pull requests, &lt;strong&gt;because they effectively allow us to reduce 90% of the Git errors,&lt;/strong&gt; and &lt;strong&gt;because they allow effective quality control&lt;/strong&gt;. If you are messing around with your own Github repo, this is probably not so necessary - but I still highly recommend that you use good practice.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;So what is branching?&lt;/em&gt; Branching is making a copy of the codebase that you can work off from, without affecting the original codebase. In more classical CS terms, consider this to be a pointer to a copy of your original codebase. This means that you can make your own fixes, make as much bugs as you want, crash the program, without affecting the original work. When you are happy with your changes, then you submit a PR so that your branch can be merged with the original codebase (meaning you update the original codebase with your changes).&lt;/p&gt;
+&lt;h2 id=&#34;branching-how-to&#34;&gt;Branching How-To&lt;/h2&gt;
+&lt;p&gt;Now, let&#39;s talk about the mechanics of how this works. First, from your original Git codebase, create your own branch. You can do this the slower way of creating a branch using &lt;code&gt;git branch&lt;/code&gt; then checking out into the new branch with &lt;code&gt;git checkout&lt;/code&gt;, or you can do all this in one step,&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git checkout -b &amp;lt;branch-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For example, if I want to fix a bug related to Issue #31 on Github (don&#39;t worry too much about what this means - but in Github, people can raise Issues on your work that you can work on), I might make a branch like so:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git checkout -b fix-issue-31
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once I have done so, I have created a new branch &lt;code&gt;fix-issue-31&lt;/code&gt; and I have checked into the branch (meaning, I am now on that branch). I highly recommend that you customize your Terminal setup so you can see which branch you are on. Otherwise, you can type:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;which will show you all the active branches and which branch you are currently on, like so:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;base&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;  ~/Desktop/new-git-folder git branch
+* fix-issue-31
+master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;where the branch with the asterisk is the branch you are currently on.&lt;/p&gt;
+&lt;p&gt;Once you are done, follow our usual procedure of add and commit. However, on &lt;code&gt;push&lt;/code&gt;, change it up a little, so that you push to the correct branch:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git push origin &amp;lt;branch-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In my case, I would type &lt;code&gt;git push origin fix-issue-31&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;pull-request-how-to&#34;&gt;Pull Request How-To&lt;/h3&gt;
+&lt;p&gt;Now is time to make new pull requests. First, head right over the Github and click on the Pull Request button as outlined below:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;5%20minute%20Guide%20to%20Get%20You%20Up%20To%20Speed%20in%20Git%20Githu%204fe0fa9a7726409ca72bec4a56fed1ce/Screen_Shot_2020-06-14_at_9.39.49_PM.png&#34; alt=&#34;5%20minute%20Guide%20to%20Get%20You%20Up%20To%20Speed%20in%20Git%20Githu%204fe0fa9a7726409ca72bec4a56fed1ce/Screen_Shot_2020-06-14_at_9.39.49_PM.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Then, move right along to &lt;code&gt;New Pull Request&lt;/code&gt; button:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;5%20minute%20Guide%20to%20Get%20You%20Up%20To%20Speed%20in%20Git%20Githu%204fe0fa9a7726409ca72bec4a56fed1ce/Screen_Shot_2020-06-14_at_9.41.25_PM.png&#34; alt=&#34;5%20minute%20Guide%20to%20Get%20You%20Up%20To%20Speed%20in%20Git%20Githu%204fe0fa9a7726409ca72bec4a56fed1ce/Screen_Shot_2020-06-14_at_9.41.25_PM.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Once you are there, you should be able to submit a new Pull Request. Then, you can collaborate with other folks who will review your work and you can continue to update your branch until everyone is satisfied and thinks your code should be merged into the &lt;code&gt;master&lt;/code&gt; branch. And there you have it! Woohoo!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Welcome to my blog!</title>
